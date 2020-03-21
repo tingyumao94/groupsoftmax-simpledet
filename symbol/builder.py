@@ -263,7 +263,8 @@ class RpnHead(object):
         )
 
         # TODO: ask all to add is_train filed in RPNParam
-        proposal = X.proposal(
+        # X.proposal
+        proposal = mx.sym.contrib.ProposalGS(
             cls_prob=cls_logit_reshape,
             bbox_pred=bbox_delta,
             im_info=im_info,
